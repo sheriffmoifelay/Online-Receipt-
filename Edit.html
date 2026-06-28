@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CASH AND CARRY </title>
+    <link rel="shortcut icon" href="AIL.png" type="image/x-icon">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-image: url(TECQS.jpg);
+            background-size: cover;
+        }
+
+        .entire{
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .top1{
+            width: 100%;
+            height: 38px;
+            background-color: white;
+        }
+
+        .top1 a{
+            text-decoration: none;
+            color: rgb(163, 157, 157);
+            font-size: 13.5px;
+            margin: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #logo{
+            width: 15px;
+            height: 17px;
+        }
+
+        .top1 label{
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .function{
+            float: right;
+            margin-bottom: 10px;
+        }
+
+        .function a{
+            display: inline-block;
+        }
+
+        .function a img{
+            width: 25px;
+            height: 20px;
+        }
+
+        .top2{
+            width: 100%;
+            height: 35px;
+            background-color: gainsboro;
+            border-top: 3px solid rgb(173, 162, 162);
+            border-bottom:  3px solid rgb(173, 162, 162);;
+        }
+    
+        .top2 li{
+            display: none;
+        }
+
+        .background{
+            height: 87%;
+            background-image: url(background.jpg);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+        }
+
+        .receipts{
+            width: 12%;         
+            height: 100%;
+            border: 2px solid rgb(185, 179, 179);
+            border-top: none;
+            text-align: center;
+            background-color: rgb(150, 150, 207);
+            
+        }
+
+        .receipts button{
+            width: 150px;
+            padding: 4px; 
+            background-color: rgba(85, 85, 240, 0.747); 
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .receipts a{
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        .form{
+            width: 88%;
+        }
+
+
+        form{
+            width: 60%;
+            height: 80vh;
+            margin-left: 20%;
+            background-color: rgb(199, 218, 233);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .left{
+            width: 45%;
+            height: 95%;
+            background-color: rgb(219, 219, 230);
+            border: 1px solid black;
+            margin: 5px auto;
+            margin-top: 12px;
+        }
+
+        .right{
+            width: 45%;
+            height: 95%;
+            margin: 5px auto;
+            margin-top: 12px;
+            background-color: rgb(219, 219, 230);
+            border: 1px solid black;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .right div{
+            background-color: white;
+            border: 1px solid black;
+            font-size: 20px;
+            text-align: center;
+            width: 95%;
+            height: 40px;
+        }
+
+        .right label{
+            font-size: 25px;
+            font-family: Arial, Helvetica, sans-serif;
+        
+        }
+
+        .delete{
+            margin-top: 10px;
+            background-color: rgb(192, 188, 188); 
+        }
+
+        .delete button{
+            width: 45%;
+            padding: 5px;
+            height: 75%;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid rgb(211, 208, 208);
+        }
+
+        .delete button a{
+            text-decoration: none; 
+            color: black; 
+            font-size: 18px;
+        }
+
+        #delete{
+            background-color: rgb(236, 236, 23);
+        }
+
+        #back{
+            background-color: rgb(226, 221, 221);
+        }
+
+        @media screen and (min-width: 270px) and (max-width: 750px){
+            #logo{
+                margin-left: 7px;
+                width: 15px;
+                height: 14px;
+            }
+            
+            .top1 label{
+               font-size: 12px;                
+            }
+       
+            
+            .function{
+                width: 77px;
+                display: flex;
+            }
+
+           .function a img{
+               width: 15px;
+               height: 10px;
+            }
+            
+            .receipts{
+                display: none;
+            }
+            
+           .top2{
+                display: flex;
+                justify-content: center;
+                height: 30px;                                               
+            }
+            
+            .top2 li{
+                margin-top: 3px;
+                display: inline-block;                
+            }
+            
+            .top2 li button{
+                width: 100%;
+                background-color: blue;
+                padding: 3px;
+                border-radius: 5px;
+                border: none;                
+            }
+            
+            .top2 a{
+                text-decoration: none;
+                color: white;
+                font-size: 15px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .background{
+                height: 85vh;
+            }
+
+            form{
+                width: 98%;
+                height: 96%;
+                flex-wrap: wrap;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+            
+            .left{
+                width: 95%;
+                height: 20vh;
+                overflow-y: scroll;
+            }
+            
+            .right{
+                width: 95%;
+                height: 55vh;
+                overflow-y: scroll;
+            }
+
+            .right div{
+                height: 35px;
+                font-size: 15px;
+            }
+            
+            .right label{
+                font-size: 20px;
+            }
+            
+            .delete button{
+                width: 45%;             
+            }
+            
+            .delete button a{
+                font-size: 12px;
+            }
+           
+        }
+
+    </style>
+</head>
+<body>
+    <section class="entire">
+        <div class="top1">
+            <img src="AIL.png" alt="" id="logo">
+            <label> KHALIFAH ENTERPRICE 2026.001 ---------- </label>
+            <div class="function">
+                <a href="#"> 
+                    <img src="Minimize.jpg" id="Cancel"> 
+                </a>
+                <a href="#"> 
+                    <img src="Maximize.jpg" id="Cancel"> 
+                </a>
+                <a href="Cancel.html"> 
+                    <img src="Cancel.jpg" id="Cancel"> 
+                </a>
+            </div>
+            <br>
+            <a href="#"> File </a>
+            <a href="#"> Activities </a>
+            <a href="#"> Report Creation </a>
+        </div>
+         <div class="top2">
+            <marquee behavior="direction" direction="">
+                <ul>
+                <li> 
+                    <button>
+                        <a href="index.html">
+                            <b> SALES FORM </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 1.html">
+                            <b> HOLD 1 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 2.html">
+                            <b> HOLD 2 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 3.html">
+                            <b> HOLD 3 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 4.html">
+                            <b> HOLD 4 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 5.html">
+                            <b> HOLD 5 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 6.html">
+                            <b> HOLD 6 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 7.html">
+                            <b> HOLD 7 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 8.html">
+                            <b> HOLD 8 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 9.html">
+                            <b> HOLD 9 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 10.html">
+                            <b> HOLD 10 </b>
+                        </a>
+                    </button>
+                </li>                                                   
+            </ul>
+            </marquee>
+        </div>
+        <div class="background">
+            <div class="form">
+                <form>
+                    <div class="left"> </div>
+                    <div class="right">
+ 
+                        <label style="margin-top: 5px;"> Product Name </label>
+                        <div class="productname"> </div>
+
+                        <label> Price </label>
+                        <div class="price"></div>
+
+                        <label> Quantity </label>
+                        <div class="quantity"> </div>
+
+                        <label> Amount </label>
+                        <div class="amount"> </div>
+                        
+                        <label> </label>
+                        <div class="delete">
+                            <button id="delete"> <a href="#"> Delete Records </a> </button>
+                            <button id="back"> <a href="index.html""> Back To Form </a> </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="receipts"> 
+                <br>
+                <button> <a href="index.html"> SALES FORM </a> </button>
+                <br><br>
+                <button> <a href="HOLD 1.html"> HOLD ONE-1 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 2.html"> HOLD TWO-2 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 3.html"> HOLD THREE-3 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 4.html"> HOLD FOUR-4 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 5.html"> HOLD FIVE-5 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 6.html"> HOLD SIX-6 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 7.html"> HOLD SEVEN-7 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 8.html"> HOLD EIGHT-8 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 9.html"> HOLD NINE-9 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 10.html"> HOLD TEN-10 </a> </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

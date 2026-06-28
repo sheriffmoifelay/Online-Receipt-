@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CASH AND CARRY </title>
+    <link rel="shortcut icon" href="AIL.png" type="image/x-icon">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .entire{
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .top1{
+            width: 100%;
+            height: 38px;
+            background-color: white;
+        }
+
+        .top1 a{
+            text-decoration: none;
+            color: rgb(163, 157, 157);
+            font-size: 13.5px;
+            margin: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #logo{
+            width: 15px;
+            height: 17px;
+        }
+
+        .top1 label{
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .function{
+            float: right;
+            margin-bottom: 10px;
+        }
+
+        .function a{
+            display: inline-block;
+        }
+
+        .function a img{
+            width: 25px;
+            height: 20px;
+        }
+
+        .top2{
+            width: 100%;
+            height: 35px;
+            background-color: gainsboro;
+            border-top: 3px solid rgb(173, 162, 162);
+            border-bottom:  3px solid rgb(173, 162, 162);;
+        }
+    
+        .top2 li{
+            display: none;
+        }
+
+        .background{
+            width: 100%;
+            height: 87%;
+            background-image: url(background.jpg);
+            background-size: cover;
+        }
+
+        .form{
+            margin-top: 10px;
+            margin-left: 15%;
+            width: 65%;
+            height: 84vh;
+            background-color: rgb(243, 230, 230);
+            border-radius: 5px;
+            float: left;
+        }
+
+        .form h3{
+            font-size:10px; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: rgb(177, 177, 236); 
+            padding: 5px; color: black; 
+            font-size: 15px;
+        }
+
+        .form b{
+            font-size:25px; 
+            margin-left:25%; 
+            font-family:Arial, Helvetica, sans-serif; 
+        }
+
+        .up1{
+            width: 95%;
+            height: 40px;
+            background-color: rgb(228, 240, 238);
+            margin-left: 20px;
+            border: 2px solid black;
+        }
+
+        .up1 b{
+            font-size: 24px; 
+            margin-left: 15px; 
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .up1 input{
+            background-color: rgb(235, 114, 70); 
+            padding: 7px; 
+            width: 31.5%;
+            margin-top: 5px; 
+            border: none;
+            text-align: center;
+        }
+
+        .itemsdescription{
+            width: 95%;   
+            background-color: rgb(228, 238, 236);
+            margin-left: 20px;
+            border: 2px solid black;
+            border-top: none;
+        }
+
+        .itemsdescription b{
+            font-size:15px; 
+            margin-left: 10px; 
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .itemsdescription input{
+            width: 30%;
+            height: 20px;
+            font-size: 18px;
+            margin-top: 5px;
+            text-align: center;
+        }
+    
+        #qtyleft{
+            width: 70px;
+            background-color: black; 
+            color: white;
+         }
+    
+         #barcodediv{
+             width: 65%;
+         }
+    
+         #date{
+             width: 23.2%;
+         }
+    
+         #productname{
+           width: 70%;  
+         }
+         
+         #time{
+             width: 14.2%;
+         }
+       
+         #descriptiondiv{
+             width: 30%;
+         }
+        
+         #qtydiv{
+             width: 70px;
+         }
+    
+         #pricediv{
+            width: 12%;
+         }
+    
+         #amountdiv{
+             width: 16.4%;
+         }
+
+        .items{
+            width: 95%;
+            height: 150px;
+            margin-top: -25px;
+            background-color: white;
+            margin-left: 20px;
+            border: 2px solid black;
+            justify-content: center;
+            overflow-y: scroll;
+        }
+
+     
+        table{
+            width: 97%;        
+            margin-top: 10px;
+            margin-left: 10px;
+            border: 1px solid black;
+            border-bottom: none;
+        }
+    
+        .itemslabel tr th{
+            font-size: 22px;
+            border: 1px solid black;
+        }
+    
+        #pd{
+            width: 50%;
+            text-align: left;
+        }   
+
+        table tbody tr{
+            font-size: 20px;
+            margin-left: 20px;
+        }
+
+        #UnitPrice{
+            text-align: center;
+        }
+
+        #AmountBought{
+            text-align: center;
+        }
+        
+        .sales{
+            width: 95%;
+            background-color: rgb(228, 238, 236);
+            margin-left: 20px;
+            margin-top: 5px;
+            border: 2px solid black;
+            display: flex;
+        }
+
+        .salesfirst{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 15%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .salesfirst label{
+            margin-top: 10px;
+            font-size: 18px;
+        }
+
+        .salessecond{
+            width: 20%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .salessecond div{
+            width: 98%;
+            height: 40px;
+            margin-top: 3px;
+            background-color: white;
+            border: 1px solid rgb(126, 123, 123);
+        }
+
+        .salessecond input{
+            width: 98%;
+            height: 38px;
+            font-size: 25px;
+            border: 1px solid rgb(126, 123, 123);;
+            background-color: white;
+            margin-top: 1px;
+            text-align: center;
+        }
+
+        .salesthird{
+            width: 20%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .salesthird label{
+            margin-top: 2px;
+            font-size: 18px; 
+        }
+
+        .salesthird div{
+            width: 90%;
+            margin-top: -20px;
+            height: 45px;
+            background-color: white;
+            border: 1px solid rgb(126, 123, 123);
+        }
+
+        .salesfourth{
+            width: 30%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .salesfourth div{
+            width: 95%;
+            height: 83px;
+            margin-top: 5px;
+            background-color: white;
+            border: 1px solid rgb(126, 123, 123);
+        }
+
+        .salesfifth{
+            width: 15%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .salesfifth button{
+            width: 95%;
+            padding: 5px;
+            background-color: rgb(240, 120, 8);
+            border: none;
+            margin: 5px;
+        }
+
+        #cancel{
+            background-color: rgb(252, 72, 6);
+        }
+
+        .salesfifth a{
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .developer{
+            width: 95.5%;
+            height: 38px;
+            margin-top: 5px;
+            margin-left: 20px;
+            background-color: rgba(107, 9, 9, 0.884); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            color: white;  
+            text-align: center; 
+        }
+
+        .developer b{
+            font-size: 25px;
+            margin-left: 0;
+        }
+
+        .salesmobile{
+            display: none;
+        }
+
+        .receipts{
+            width: 12%;         
+            height: 100%;
+            border: 2px solid rgb(185, 179, 179);
+            border-top: none;
+            text-align: center;
+            background-color: rgb(150, 150, 207);
+            float: right;
+        }
+
+        .receipts button{
+            width: 150px;
+            padding: 4px; 
+            background-color: rgba(85, 85, 240, 0.747); 
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .receipts a{
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        @media screen and (min-width: 270px) and (max-width: 750px){
+         
+                       
+            #logo{
+                margin-left: 7px;
+                width: 15px;
+                height: 14px;
+            }
+            
+            .top1 label{
+               font-size: 12px;                
+            }
+       
+            
+            .function{
+                width: 77px;
+                display: flex;
+            }
+
+           .function a img{
+               width: 15px;
+               height: 10px;
+            }
+            
+            .top2{
+                display: flex;
+                justify-content: center;
+                height: 30px;
+            }
+            
+            .top2 li{
+                margin-top: 3px;
+                display: inline-block;                
+            }
+            
+            .top2 li button{
+                width: 100%;
+                background-color: blue;
+                padding: 3px;
+                border-radius: 5px;
+                border: none;                
+            }
+            
+            .top2 a{
+                text-decoration: none;
+                color: white;
+                font-size: 15px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            .background{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            #cnc{
+                display: none;
+            }
+            
+            .receipts{
+                display: none;             
+            }
+            
+            .form{
+                width: 93%;
+                height: 95%;
+                margin-top: 5px;
+                margin-left: 4%;
+            }
+            
+            .form h3{
+                font-size: 15px;
+                text-align: center;
+            }
+            
+            .form div{
+                width: 90%;
+            }
+            
+            .form input{
+                margin-left: 2px;
+                width: 95%;
+                height: 0;
+                padding: 8px;
+                font-size: 10px;
+            }
+            
+            .form b{
+                font-size: 12px;
+            }
+            
+            .up1 b{
+                font-size: 18px;
+                margin-left: 2px;
+            }
+            
+            .up1{
+                margin-top: 8px;
+                height: 25px;
+            }
+            
+            .up1 input{
+                color: white;
+                width: 52%;
+                font-size: 12px;
+                text-align: center;
+            }
+            
+            #scan{
+                display: none;
+            }
+            
+            #empty{
+                display: none;
+            }
+            
+            #customer{
+                width: 68%;
+            }
+            
+            #qtyleft{
+                width: 8%;
+                color: white;
+            }
+            
+            #barcodetext{
+                font-size: 10px;
+                margin-left: 0;
+            }
+            
+            #barcodediv{
+                width: 24%;    
+            }
+            
+            #date{
+                width: 20%;
+                margin-left: 10px;               
+            }
+            
+            #productname{
+                width: 30.7%;
+                font-size: 10px;
+            }
+            
+            #time{
+                width: 20%;
+                margin-left: 10px;                            
+            }
+            
+            #descriptiondiv{
+                width: 35.5%;
+            }
+            
+            #qtydiv{
+                width: 10%;
+            }
+            
+            #pricetext{
+                margin-left: 0;
+            }
+            
+            #pricediv{
+                width: 12%; 
+            }
+            
+            #amounttext{
+                margin-left: 0;
+            }           
+            
+            .items{
+                margin-top: -10px;
+                height: 100px;
+                text-align: center;
+            }
+            
+            table{
+                margin-left: 20px;
+            }
+        
+            .itemslabel tr th{
+                font-size: 12px;
+            }
+        
+            #pd{
+                width: 50%;
+                text-align: left;
+            }   
+
+            table tbody tr{
+                font-size: 12px;
+                margin-left: 20px;
+            }
+
+            
+            .sales{
+                display: none;
+            }
+
+            .salesmobile{
+                width: 95%;
+                height: 23vh;
+                background-color: rgb(228, 238, 236);
+                margin-left: 20px;
+                margin-top: 5px;
+                border: 2px solid black;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: left;
+            }
+
+            .salesmobile b{
+                font-size: 12px; 
+                margin-top: 15px;
+                margin-left: 2px;
+            }
+
+            .salesmobile div{
+              
+                background: white;
+                border: 1px solid rgb(184, 178, 178);
+                font-size: 12px;
+                margin-top: 5px;
+                
+                text-align: center;
+            }
+
+            #div11{
+                margin-top: 5px;
+                width: 30%;
+                margin-left: 2%;
+                height: 22px;
+                font-size: 22px;
+                text-align: center;
+            }
+
+            #div22{
+                width: 22%;
+                height: 39px;
+                margin-left: 2%;
+            }
+            
+            #totalsaletext{
+                margin-top: 20px;
+            }
+
+            #div33{
+                width: 75%;
+                height: 48px;
+          
+                display: flex;
+                margin-left: 2%;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            #div33 b{
+                width: 100%;
+                font-size: 15px;
+                margin: 0;
+            }
+            
+            #div33 label{
+                font-size: 12px;
+            }
+            
+            .delete{
+                margin-bottom: 12px;
+                margin-left: 5%;          
+                height: 30px;                
+                justify-content: center;
+            }
+            
+            .delete button{
+                width: 40%;
+                margin-top: 1%;
+                border: none;               
+                height: 75%;
+                margin: 5px;
+            }
+            
+            #edit{
+                background-color: rgb(195, 164, 80);
+            }
+            
+            #cancel{
+                background-color: rgb(235, 114, 70);
+            }
+            
+            .delete a{
+                text-decoration: none;
+                color: black;
+            }
+            
+            .developer{
+                justify-content: center;
+                margin-left: 22px;
+                height: 16px;
+            }
+            
+            .developer b{    
+                font-size: 14px;
+            }
+                                                              
+           
+        }
+
+    </style>
+</head>
+<body>
+    <section class="entire">
+        <div class="top1">
+            <img src="AIL.png" alt="" id="logo">
+            <label> KHALIFAH ENTERPRICE 2026.001 ========= </label>
+            <div class="function">
+                <a href="Cancel.html"> 
+                    <img src="Minimize.jpg" id="Cancel"> 
+                </a>
+                <a href="#"> 
+                    <img src="Maximize.jpg" id="Cancel"> 
+                </a>
+                <a href="Cancel.html"> 
+                    <img src="Cancel.jpg" id="Cancel"> 
+                </a>
+            </div>
+            <br>
+            <a href="#"> File </a>
+            <a href="#"> Activities </a>
+            <a href="#"> Report Creation </a>
+        </div>
+         <div class="top2">
+            <marquee behavior="direction" direction="">
+                <ul>
+                <li> 
+                    <button>
+                        <a href="index.html">
+                            <b> SALES FORM </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 1.html">
+                            <b> HOLD 1 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 2.html">
+                            <b> HOLD 2 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 3.html">
+                            <b> HOLD 3 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 4.html">
+                            <b> HOLD 4 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 5.html">
+                            <b> HOLD 5 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 6.html">
+                            <b> HOLD 6 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 7.html">
+                            <b> HOLD 7 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 8.html">
+                            <b> HOLD 8 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 9.html">
+                            <b> HOLD 9 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 10.html">
+                            <b> HOLD 10 </b>
+                        </a>
+                    </button>
+                </li>                                                   
+            </ul>
+            </marquee>
+        </div>
+        <div class="background">     
+            <div class="form"> 
+                <h3> KHALIFAH ENTERPRISE LTD. - (RECEIPT 8) </h3>
+                <b id="cnc"> KHALIFAH LTD. (Receipt 8) </b>     
+                <div class="up1"> 
+                    <b id="scan"> Scan </b>
+                    <input type="text" id="scan"> 
+                    <b> Product Name </b>
+                    <input type="text" id="inputedproduct"> 
+                </div> 
+                <div class="itemsdescription">
+                    <b> Customer:</b> 
+                    <input type="text" id="customer" value="Cash Customer" readonly=""> 
+                    <input type="text" id="empty">
+                    <b id="qtyleft-text"> Qty Left: </b>
+                    <input type="text" id="qtyleft" readonly=""> <input type="text" readonly="" id="qtyleft">
+                    <b id="barcodetext"> Bar Code </b>  
+                    <input type="text" readonly="" id="barcodediv">
+                    <input type="date" id="date">
+                    <b> Product Name </b>
+                    <input type="text" readonly="" id="productname">
+                    <input type="time" id="time">
+                    <b> Description </b>
+                    <input type="text" id="descriptiondiv" readonly="">        
+                    <b> Qty </label>
+                    <input type="number" id="qtydiv" value="" step="1">  
+                    <b id="pricetext"> Price </b>
+                    <input type="number" readonly="" id="pricediv">  
+                    <b id="amounttext"> Amount </b>
+                    <input type="number" readonly="" id="amountdiv">
+                    <br><br> 
+                </div>
+                <div class="items">
+                    <div id="itemsdisplay" style="border-bottom: none;"> 
+                        
+    <table class="table">
+        <thead class="itemslabel">
+            <tr>
+            <th scope="col"> Qty </th>
+            <th scope="col" id="pd"> Products Description </th>
+            <th scope="col"> Price </th>
+            <th scope="col"> Amount </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row" id="Quantity">  </th>
+            <td id="ProductName" onchange="content()">  </td>
+            <td id="UnitPrice" onchange="content()"> </td>
+            <td id="AmountBought" onchange="content()">  </td>
+            </tr>
+            <tr>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+        </div>
+            <div class="sales">
+                <div class="salesfirst">
+                    <label> Total Sales </label>
+                    <label> Amt. Taken </label>
+                    <br>
+                </div>
+                <div class="salessecond">
+                    <div> </div>
+                    <input type="number">
+                    <br>
+                </div>
+                <div class="salesthird">
+                    <label> Change </label>
+                    <div> </div>
+                </div>
+                <div class="salesfourth">
+                    <div></div>
+                </div>
+                <div class="salesfifth">
+                    <button id="cancel"> <a href="Cancel.html"> Cancel </a></button>
+                    <button> <a href="Edit.html"> Edit </a></button>
+                </div>
+            </div>
+            <div class="salesmobile">
+                <b> Amt. Taken </b>
+                <input type="number" readonly="" class="totalsales" id="div11">
+                <b> Change </b>
+                <div class="amounttaken" id="div22"></div>
+                <b id="totalsaletext"> Total Sales </b>
+                <div class="amounttaken" id="div33">
+                    <b> 323.78 </b> <br>
+                    <label> Three Hundred and Twenty-Three Ghana Cedis, Seventy-Eight Pesewas </label>
+                </div>
+                <div class="delete">
+                    <button id="edit">
+                        <a href="Edit.html"> <b> Edit </b> </a>
+                    </button>
+                    <button id="cancel">
+                        <a href="Cancel.html"> <b> Close </b> </a>
+                    </button>
+                </div>
+            </div>
+            <div class="developer">
+                <b> DEVELOPED BY SHERIFF 0264-262-543 </b>
+                </div>
+            </div>
+            
+            <div class="receipts"> 
+                <br>
+                <button> <a href="index.html"> SALES FORM </a> </button>
+                <br><br>
+                <button> <a href="HOLD 1.html"> HOLD ONE-1 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 2.html"> HOLD TWO-2 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 3.html"> HOLD THREE-3 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 4.html"> HOLD FOUR-4 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 5.html"> HOLD FIVE-5 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 6.html"> HOLD SIX-6 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 7.html"> HOLD SEVEN-7 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 8.html"> HOLD EIGHT-8 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 9.html"> HOLD NINE-9 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 10.html"> HOLD TEN-10 </a> </button>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        function content(){
+            let qty = document.getElementById('qtydiv') .value
+            let item = document.getElementById('inputedproduct') .value
+            let price = document.getElementById('pricediv') .value    
+            let amount = qty * price;
+            
+            document.getElementById('Quantity').innerHTML =  qty
+            document.getElementById('ProductName').innerHTML =  item
+            document.getElementById('UnitPrice').innerHTML =  price
+            document.getElementById('AmountBought').innerHTML = amount
+            document.getElementById('amountdiv').innerHTML = amount
+            
+        }
+    </script>
+</body>
+</html>

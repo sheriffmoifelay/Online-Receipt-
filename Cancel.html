@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> CASH AND CARRY </title>
+    <link rel="shortcut icon" href="AIL.png" type="image/x-icon">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .entire{
+            width: 100%;
+            height: 100vh;
+        }
+        
+        .top1{
+            width: 100%;
+            height: 38px;
+            background-color: white;
+        }
+
+        .top1 a{
+            text-decoration: none;
+            color: rgb(163, 157, 157);
+            font-size: 13.5px;
+            margin: 5px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        #logo{
+            width: 15px;
+            height: 17px;
+        }
+
+        .top1 label{
+            font-size: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .function{
+            display: flex;
+            float: right;
+            margin-bottom: 10px;
+        }
+
+        .function a{
+            display: inline-block;
+        }
+
+        .function a img{
+            width: 25px;
+            height: 20px;        
+        }
+
+        .top2{
+            width: 100%;
+            height: 35px;
+            background-color: gainsboro;
+            border-top: 3px solid rgb(173, 162, 162);
+            border-bottom:  3px solid rgb(173, 162, 162);;
+        }
+    
+        .top2 li{
+            display: none;
+        }
+
+        .background{
+            width: 100%;
+            height: 87%;
+            background-image: url(background.jpg);
+            background-size: cover;
+        }
+
+        .receipts{
+            width: 12%;         
+            height: 100%;
+            border: 2px solid rgb(185, 179, 179);
+            border-top: none;
+            text-align: center;
+            background-color: rgb(150, 150, 207);
+            float: right;
+        }
+
+        .receipts button{
+            width: 150px;
+            padding: 4px; 
+            background-color: rgba(85, 85, 240, 0.747); 
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .receipts a{
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        @media screen and (min-width: 270px) and (max-width: 750px){   
+            #logo{
+                margin-left: 7px;
+                width: 15px;
+                height: 14px;
+            }
+            
+            .top1 label{
+               font-size: 12px;                
+            }       
+            
+            .function{
+                width: 77px;
+                display: flex;
+            }
+
+           .function a img{
+               width: 15px;
+               height: 10px;
+            }                                                                            
+            
+            .receipts{
+                display: none;
+            }
+           .top2{
+                display: flex;
+                justify-content: center;
+                height: 30px;
+            }
+            
+            .top2 li{
+                margin-top: 3px;
+                display: inline-block;                
+            }
+            
+            .top2 li button{
+                width: 100%;
+                background-color: blue;
+                padding: 3px;
+                border-radius: 5px;
+                border: none;                
+            }
+            
+            .top2 a{
+                text-decoration: none;
+                color: white;
+                font-size: 15px;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }                                                   
+           
+        }
+
+    </style>
+</head>
+<body>
+    <section class="entire">
+        <div class="top1">            
+            <label>
+                <img src="AIL.png" alt="" id="logo">
+                KHALIFAH ENTERPRICE 2026.001 ======
+            </label>
+            <div class="function">
+                <a href="#"> 
+                    <img src="Minimize.jpg" id="Cancel"> 
+                </a>
+                <a href="#"> 
+                    <img src="Maximize.jpg" id="Cancel"> 
+                </a>
+                <a href="Cancel.html"> 
+                    <img src="Cancel.jpg" id="Cancel"> 
+                </a>
+            </div>
+            <br>
+            <a href="#"> File </a>
+            <a href="#"> Activities </a>
+            <a href="#"> Report Creation </a>
+        </div>
+         <div class="top2">
+            <ul>
+                <li> 
+                    <button>
+                        <a href="index.html">
+                            <b> SALES FORM </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 1.html">
+                            <b> HOLD 1 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 2.html">
+                            <b> HOLD 2 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 3.html">
+                            <b> HOLD 3 </b>
+                        </a>
+                    </button>
+                </li>
+                <li> 
+                    <button>
+                        <a href="HOLD 4.html">
+                            <b> HOLD 4 </b>
+                        </a>
+                    </button>
+                </li>                                                   
+            </ul>
+        </div>
+        <div class="background">
+            <div class="receipts"> 
+                <br>
+                <button> <a href="index.html"> SALES FORM </a> </button>
+                <br><br>
+                <button> <a href="HOLD 1.html"> HOLD ONE-1 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 2.html"> HOLD TWO-2 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 3.html"> HOLD THREE-3 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 4.html"> HOLD FOUR-4 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 5.html"> HOLD FIVE-5 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 6.html"> HOLD SIX-6 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 7.html"> HOLD SEVEN-7 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 8.html"> HOLD EIGHT-8 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 9.html"> HOLD NINE-9 </a> </button>
+                <br><br>
+                <button> <a href="HOLD 10.html"> HOLD TEN-10 </a> </button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+        
